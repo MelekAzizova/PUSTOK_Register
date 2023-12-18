@@ -1,0 +1,42 @@
+﻿@using WebApplicationPustok.ViewModel.SliderVM;
+@model  List<SliderListItemVM>
+
+<section class="hero-area hero-slider-1">
+    <div class="sb-slick-slider" data-slick-setting='{
+                            "autoplay": true,
+                            "fade": true,
+                            "autoplaySpeed": 3000,
+                            "speed": 3000,
+                            "slidesToShow": 1,
+                            
+                            "dots":true
+                            }'>
+        @foreach (var slider in Model)
+        {
+
+            <div class="single-slide bg-shade-whisper   ">
+                <div class="container" >
+                    <div class="home-content text-center text-sm-left position-relative">
+                        <div class="hero-partial-image @(slider.IsLeft == true ? "image-right" : "image-left")">
+                            <img width="30px" height="400px" src="@slider.ImageUrl" alt="">
+                        </div>
+                        <div class="row no-gutters d-flex @(slider.IsLeft == true ? "justify-content-start" : "justify-content-end")">
+                            <div class="col-xl-6 col-md-6 col-sm-7">
+                                <div class="home-content-inner content-left-side">
+                                    <h1>
+                                        @slider.Title
+                                    </h1>
+                                    <h2>@slider.Description</h2>
+                                    <a href="shop-grid.html" class="btn btn-outlined--primary">
+                                        $78.09 - Order Now!
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</section>

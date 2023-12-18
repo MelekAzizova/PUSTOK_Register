@@ -1,0 +1,99 @@
+﻿@using WebApplicationPustok.Areas.Admin.ViewModels;
+@model List<AdminProductListItemVM>;
+
+@section scripts {
+            fetch("http://localhost:5249/Home/ProductPagination?page=1&count=6")
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+   @*  <script>
+        $("#dataTable").on("click", "#prod-pag a", function (ev) {
+            ev.preventDefault();
+            fetch($(this).attr("href"))
+                .then(res => res.text())
+                .then(data => $("#dataTable").html(data))
+        })
+    </script> *@
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Product</h6>
+        <a asp-action="Create" class="btn btn-outline-success">Create</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive ">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Title</td>
+                <td>Description</td>
+                <td>CostPrice</td>
+                <td>ProductCode</td>
+                <td>Category</td>
+                <td>ImgFile</td>
+                <td>Discount</td>
+                <td>SellPrice</td>
+                <td>IsDeleted</td>
+                <td>Tag</td>
+               
+                <th class="text-center" colspan="2">Action</th>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@item.CostPrice</td>
+                                <td>@item.ProductCode</td>
+                                <td>@item.Category.Name</td>
+                                <td>
+                                    @if (item.ImgFile.Contains("://"))
+                                    {
+                                        <img width="80" src="@item.ImgFile" />
+                                    }
+                                    else
+                                    {
+                                        <img width="80" src="~/@item.ImgFile" />
+                                    }
+
+                                </td>
+                                <td>@item.Discount</td>
+                               
+                                <td>@item.SellPrice</td>
+                                <td>@item.IsDeleted</td>
+                                <td>@string.Join(",", item.Tags.Select(x => x.Title))</td>
+                               @*  @if (item.Tags == null || item.Tags.Count() == 0)
+                                {
+                                    <td>No tag</td>
+                                }
+                                else
+                                {
+                                    <td>@string.Join(",", item.Tags.Select(x => x.Title))</td>
+                                } *@
+                                @* <td>@item.Tag</td> *@
+                                @* @foreach (var image in item.productImages)
+                                {
+                                    <td>@image.ImagePath</td>
+                                } *@
+
+                                <td class="text-center"><a class="btn btn-outline-info" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+                                <td class="text-center"><a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="text-center" colspan="4">No data</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

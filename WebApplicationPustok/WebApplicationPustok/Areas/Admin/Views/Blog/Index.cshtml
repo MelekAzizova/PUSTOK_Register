@@ -1,0 +1,51 @@
+﻿@using WebApplicationPustok.ViewModel.BlogVM
+@model List<BlogListItem>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Blog</h6>
+        <a href="~/Admin/Blog/Create" class="btn btn-outline-success">Create</a>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>AuthorId</th>
+                <th>CreatAt</th>
+                <th>UpdatAt</th>
+                <th>IsDeleted</th>
+               @*  <th>Tags</th> *@
+               
+
+                <th class="text-center" colspan="2">Action</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Title</td>
+                            <td>@item.Description</td>
+                            <td>@item.AuthorId</td>
+                            <td>@item.CreatAt</td>
+                            <td>@item.UpdatAt</td>
+                            <td>@item.IsDeleted</td>
+                           @*  <td>@item.TagIds</td> *@
+                            <td class="text-center"><a class="btn btn-outline-info" asp-action="Update" asp-route-id="@item.Id">Update</a></td>
+                            <td class="text-center"><a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

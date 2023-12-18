@@ -1,0 +1,16 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace  WebApplicationPustok.ViewModel.SliderVM
+{
+    public class SliderListItemVM
+    {
+        public int Id { get; set; }
+
+        public string ImageUrl { get; set; }
+        
+        public string Title { get; set; }
+        
+        public string Description { get; set; }
+        public bool IsLeft { get; set; }
+    }
+}
