@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FDIUit0RNkWVteGTu0F4cI6LTd6u5itHn0zEjLPF/ao=",
+  "Hash": "mJo6a2YERTIPoF9W60a4BZPqulB5sbVm4/mFnQvKg3U=",
   "Source": "WebApplicationPustok",
   "BasePath": "_content/WebApplicationPustok",
   "Mode": "Default",
@@ -1649,6 +1649,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Admin\\product\\qgk0wjc1.grnhuzurs.webp.webp"
+    },
+    {
+      "Identity": "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\qsbsnc50.qsg120_Bin_Muhtesem_Gunes-Khaled_Ho.webp",
+      "SourceId": "WebApplicationPustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\",
+      "BasePath": "_content/WebApplicationPustok",
+      "RelativePath": "Admin/product/qsbsnc50.qsg120_Bin_Muhtesem_Gunes-Khaled_Ho.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Admin\\product\\qsbsnc50.qsg120_Bin_Muhtesem_Gunes-Khaled_Ho.webp"
     },
     {
       "Identity": "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\rdbbrc0e.dpyslider3.jpg.jpg",

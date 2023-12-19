@@ -9,7 +9,7 @@ using WebApplicationPustok.ViewModel.CategoryVM;
 namespace Pustok_AzMB.Areas.Admin.Controllers
 {
     [Area("Admin")]
-	[Authorize]
+	[Authorize(Roles = "SuperAdmin, Admin, Moderator")]
 	public class CategoryController : Controller
     {
         PustokDbContext _pd {  get; }

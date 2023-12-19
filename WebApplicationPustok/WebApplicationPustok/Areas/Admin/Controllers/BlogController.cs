@@ -8,7 +8,7 @@ using WebApplicationPustok.ViewModel.BlogVM;
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
-	[Authorize]
+	[Authorize(Roles = "SuperAdmin, Admin, Moderator")]
 	public class BlogController : Controller
     {
         public BlogController(PustokDbContext db)

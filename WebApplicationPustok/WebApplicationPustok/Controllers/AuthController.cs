@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
 using Microsoft.AspNetCore.Mvc;
+using WebApplicationPustok.Helpers;
 using WebApplicationPustok.Models;
 using WebApplicationPustok.ViewModel.AuthVM;
 
@@ -18,6 +19,7 @@ namespace WebApplicationPustok.Controllers
 		SignInManager<AppUser> _signInManager { get; }
 		UserManager<AppUser> _userManager { get; }
 		RoleManager<IdentityRole> _roleManager { get; }
+		
 
 		//==============================Registr==========================
 		public IActionResult Register()
@@ -31,18 +33,25 @@ namespace WebApplicationPustok.Controllers
 			{
 				return View(vm);
 			}
-			var result = await _userManager.CreateAsync(new AppUser
+			var user = new AppUser
 			{
 				Fullname = vm.Fullname,
 				Email = vm.Email,
 				UserName = vm.Username
-			}, vm.Password);
+			};
+			var result = await _userManager.CreateAsync(user, vm.Password);
 			if (!result.Succeeded)
 			{
 				foreach (var error in result.Errors)
 				{
 					ModelState.AddModelError("", error.Description);
 				}
+				return View(vm);
+			}
+			var roleResult = await _userManager.AddToRoleAsync(user, Roles.Member.ToString());
+			if (!roleResult.Succeeded)
+			{
+				ModelState.AddModelError("", "Something went wrong. Please contact admin");
 				return View(vm);
 			}
 			return RedirectToAction("Index", "Home");
@@ -78,11 +87,12 @@ namespace WebApplicationPustok.Controllers
 				}
 				return View(vm);
 			}
+			
 			//if (returnUrl != null)
 			//{
 			//	return LocalRedirect(returnUrl);
 			// }
-			//	return RedirectToAction("Index", "Home");
+				return RedirectToAction("Index", "Home");
 			
 		}
 
@@ -93,5 +103,25 @@ namespace WebApplicationPustok.Controllers
 			await _signInManager.SignOutAsync();
 			return RedirectToAction("Index", "Home");
 		}
+
+		//=========================Role========================
+		public async Task<bool> CreatedRoles()
+		{
+			foreach (var item in Enum.GetValues(typeof(Roles)))
+			{
+				if (!await _roleManager.RoleExistsAsync(item.ToString()))
+				{
+					var result = await _roleManager.CreateAsync(new IdentityRole
+					{
+						Name = item.ToString()
+					});
+					if (!result.Succeeded)
+					{
+						return false;
+					}
+				}
+			}
+			return true;
+		} 
 	}
 }
