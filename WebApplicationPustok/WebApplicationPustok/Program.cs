@@ -45,7 +45,7 @@ namespace WebApplicationPustok
             app.UseAuthorization();
             app.MapControllerRoute(
                name: "areas",
-               pattern: "{area:exists}/{controller=Home}/{action=Slider}/{id?}"
+               pattern: "{area:exists}/{controller=Slider}/{action=Index}/{id?}"
                );
 
             app.MapControllerRoute(
