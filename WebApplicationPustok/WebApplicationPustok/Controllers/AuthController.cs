@@ -45,7 +45,7 @@ namespace WebApplicationPustok.Controllers
 				}
 				return View(vm);
 			}
-			return View();
+			return RedirectToAction("Index", "Home");
 		}
 
 		//=====================================Login============================
