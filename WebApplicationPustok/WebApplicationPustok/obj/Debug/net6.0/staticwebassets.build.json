@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EpeMsh/X0VyLColeXt7lXlNTMX2lfRYoax8pygpROrA=",
+  "Hash": "zmLxuteIJF3WyPy50pb5EvoFfv+wq6SqWtwO9TThNsU=",
   "Source": "WebApplicationPustok",
   "BasePath": "_content/WebApplicationPustok",
   "Mode": "Default",
@@ -561,6 +561,23 @@
       "OriginalItemSpec": "wwwroot\\Admin\\product\\bp13fdav.de57.jfif.jfif"
     },
     {
+      "Identity": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\ciyqbvgx.50qwp8771727.webp.webp",
+      "SourceId": "WebApplicationPustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\",
+      "BasePath": "_content/WebApplicationPustok",
+      "RelativePath": "Admin/product/ciyqbvgx.50qwp8771727.webp.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Admin\\product\\ciyqbvgx.50qwp8771727.webp.webp"
+    },
+    {
       "Identity": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\cmsvvrhx.jwfe022c4bf998e12afac751dde817c3bbb.jpg",
       "SourceId": "WebApplicationPustok",
       "SourceType": "Discovered",
@@ -816,6 +833,23 @@
       "OriginalItemSpec": "wwwroot\\Admin\\product\\h2bsa3uo.4or3.jfif.jfif"
     },
     {
+      "Identity": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\hje1q3ee.kg0jujutsu-kaisen-sukuna-kugisaki-n.jpg",
+      "SourceId": "WebApplicationPustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\",
+      "BasePath": "_content/WebApplicationPustok",
+      "RelativePath": "Admin/product/hje1q3ee.kg0jujutsu-kaisen-sukuna-kugisaki-n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Admin\\product\\hje1q3ee.kg0jujutsu-kaisen-sukuna-kugisaki-n.jpg"
+    },
+    {
       "Identity": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\x1hf5wyx.raa7.jfif.jfif",
       "SourceId": "WebApplicationPustok",
       "SourceType": "Discovered",
@@ -984,6 +1018,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Admin\\product\\jexlu22a.gvf2.jfif.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\kdt4kzfu.oiedownload.jfif.jfif",
+      "SourceId": "WebApplicationPustok",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\",
+      "BasePath": "_content/WebApplicationPustok",
+      "RelativePath": "Admin/product/kdt4kzfu.oiedownload.jfif.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Admin\\product\\kdt4kzfu.oiedownload.jfif.jfif"
     },
     {
       "Identity": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\wwwroot\\Admin\\product\\kih1tkuf.opg6.jfif.jfif",

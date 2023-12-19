@@ -1,14 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 using WebApplicationPustok.Models;
 
 namespace WebApplicationPustok.Context
 {
-    public class PustokDbContext:DbContext
+    public class PustokDbContext:IdentityDbContext
     {
         
 
-        PustokDbContext _context {  get;  }
+       
         public PustokDbContext(DbContextOptions<PustokDbContext> opt) : base(opt) { }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Category> Categories { get; set; }
