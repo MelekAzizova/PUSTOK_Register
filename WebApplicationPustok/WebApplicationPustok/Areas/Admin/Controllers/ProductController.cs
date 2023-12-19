@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Packaging;
@@ -13,7 +14,8 @@ using WebApplicationPustok.ViewModel.ProductVM;
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProductController : Controller
+	[Authorize]
+	public class ProductController : Controller
     {
          PustokDbContext _db;
          IWebHostEnvironment _env;

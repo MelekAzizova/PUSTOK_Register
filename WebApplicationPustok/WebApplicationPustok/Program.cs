@@ -27,21 +27,31 @@ namespace WebApplicationPustok
 				opt.Password.RequireNonAlphanumeric = false;
 				opt.Password.RequiredLength = 4;
 			}).AddDefaultTokenProviders().AddEntityFrameworkStores<PustokDbContext>();
-			builder.Services.AddSession(); 
+			builder.Services.AddSession();
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = new PathString("/Auth/Login");
+                options.LogoutPath = new PathString("/Auth/Logout");
+                options.AccessDeniedPath = new PathString("/Home/AccessDenied");
+				options.SlidingExpiration = true;
+				options.ExpireTimeSpan = TimeSpan.FromDays(30);
+			});
 
 
-            builder.Services.AddScoped<LayoutService>();
+				builder.Services.AddScoped<LayoutService>();
             var app = builder.Build();
             
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-            }
+				app.UseHsts();
+			}
             app.UseHttpsRedirection();
            
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllerRoute(
                name: "areas",

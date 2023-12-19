@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplicationPustok.Context;
 using WebApplicationPustok.Models;
@@ -6,8 +7,9 @@ using WebApplicationPustok.ViewModel.BlogVM;
 
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
-        [Area("Admin")]
-    public class BlogController : Controller
+    [Area("Admin")]
+	[Authorize]
+	public class BlogController : Controller
     {
         public BlogController(PustokDbContext db)
         {

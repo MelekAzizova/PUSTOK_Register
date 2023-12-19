@@ -81,9 +81,17 @@ namespace WebApplicationPustok.Controllers
 			//if (returnUrl != null)
 			//{
 			//	return LocalRedirect(returnUrl);
-			//}
-			return RedirectToAction("Index", "Home");
+			// }
+			//	return RedirectToAction("Index", "Home");
 			
+		}
+
+
+		//=========================Logout==============================
+		public async Task<IActionResult> Logout()
+		{
+			await _signInManager.SignOutAsync();
+			return RedirectToAction("Index", "Home");
 		}
 	}
 }

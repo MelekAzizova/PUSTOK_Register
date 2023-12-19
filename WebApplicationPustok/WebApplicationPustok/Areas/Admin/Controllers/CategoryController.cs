@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 using WebApplicationPustok.Context;
@@ -8,7 +9,8 @@ using WebApplicationPustok.ViewModel.CategoryVM;
 namespace Pustok_AzMB.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CategoryController : Controller
+	[Authorize]
+	public class CategoryController : Controller
     {
         PustokDbContext _pd {  get; }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.Intrinsics.Arm;
 using WebApplicationPustok.Context;
@@ -9,6 +10,7 @@ using WebApplicationPustok.ViewModel.TagVM;
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class AuthorController : Controller
     {
         public AuthorController(PustokDbContext db)
@@ -17,7 +19,8 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
         }
 
         PustokDbContext _db {  get; set; }
-        public async Task< IActionResult> Index()
+		[AllowAnonymous]
+		public async Task< IActionResult> Index()
         {
             var items = await _db.Authors.Select(s => new AuthorListItemVM
             {

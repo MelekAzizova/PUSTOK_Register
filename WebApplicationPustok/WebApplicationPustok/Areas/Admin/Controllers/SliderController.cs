@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ using WebApplicationPustok.ViewModel.SliderVM;
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class SliderController : Controller
+	[Authorize]
+	public class SliderController : Controller
     {
         PustokDbContext _pd {  get;  }
 
@@ -21,6 +23,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
             _pd = pd;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
            
@@ -48,6 +51,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
 
         [HttpPost]
 
+        
         public async Task<IActionResult> Create(SliderCreateVM vm)
         {
             if (vm.ImgFile != null)

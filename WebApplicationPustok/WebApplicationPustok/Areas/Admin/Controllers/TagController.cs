@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplicationPustok.Context;
 using WebApplicationPustok.Helpers;
@@ -9,7 +10,8 @@ using WebApplicationPustok.ViewModel.TagVM;
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class TagController : Controller
+	[Authorize]
+	public class TagController : Controller
     {
         public TagController(PustokDbContext dp)
         {
