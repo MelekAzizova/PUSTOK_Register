@@ -381,14 +381,11 @@
                                 <div class="cart-widget">
                                     @if (User.Identity.IsAuthenticated)
                                     {
-                                        <p class="title">@User.Identity.Name</p>
-                                        <ul class="user-dropdown">
-                                            <li class="user">
-                                                <ul>
-                                                    <li><a asp-action="Logout" asp-controller="Auth">Logout</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                       
+                                       <div class="login-block">
+                                           <a asp-action="ChangeInfos" asp-controller="Auth" class="font-weight-bold">@User.Identity.Name</a><br>
+                                           <a asp-action="Logout" asp-controller="Auth">Logout</a>
+                                       </div>
                                     }
                                     else
                                     {

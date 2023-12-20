@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using WebApplicationPustok.Helpers;
 using WebApplicationPustok.Models;
 using WebApplicationPustok.ViewModel.AuthVM;
@@ -123,5 +124,40 @@ namespace WebApplicationPustok.Controllers
 			}
 			return true;
 		} 
+
+
+
+		//===============================Userpage===================================
+		public async Task<IActionResult> UserPage()
+		{
+			var user = await _userManager.FindByNameAsync(User.Identity.Name);
+			UserPageVM page = new UserPageVM();
+			if(user != null)
+			{
+				page = new UserPageVM
+				{
+					Fullname = page.Fullname,
+					Username = page.Username,
+					Email = page.Email,
+					NewPassword = page.NewPassword
+				};
+			}
+			
+            return View(page);
+        }
+		[HttpPost]
+		public async Task<IActionResult> UserPage(UserPageVM vm)
+		{
+			if (!ModelState.IsValid)
+			{
+				return View(vm);
+			}
+			if (User.Identity.Name == null) return NotFound();
+			var user = await _userManager.FindByNameAsync(User.Identity.Name);
+			user.Email = vm.Email;
+			user.Fullname = vm.Fullname;
+			user.UserName = vm.Username;
+			return View();
+		}
 	}
 }

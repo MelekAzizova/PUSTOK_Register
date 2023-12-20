@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApplicationPustok")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d71838aa093df3c1e27b4d604393644e27ffa27")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApplicationPustok")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApplicationPustok")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
