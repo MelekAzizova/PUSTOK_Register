@@ -13,7 +13,7 @@ using WebApplicationPustok.ViewModel.SliderVM;
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
-	[Authorize(Roles = "SuperAdmin, Admin, Moderator")]
+	[Authorize(Roles = "SuperAdmin, Admin")]
 	public class SliderController : Controller
     {
         PustokDbContext _pd {  get;  }
