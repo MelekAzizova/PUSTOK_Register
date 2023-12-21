@@ -28,7 +28,7 @@ namespace WebApplicationPustok.Controllers
 		//=======================================Send Email=================================
 		public IActionResult SendMail()
 		{
-			_emailService.Send("melek.azizova47@gmail.com", "Bezimmmm", "No message");
+			_emailService.Send("narmin.shivakhanova@code.edu.az", "Azizova", "hjdshjdshjdshjd");
 			return Ok();
 		}
 

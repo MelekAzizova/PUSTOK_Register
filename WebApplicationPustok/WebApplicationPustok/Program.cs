@@ -40,8 +40,8 @@ namespace WebApplicationPustok
 			});
 
 
-            builder.Services.AddScoped<IEmailService, EmailService>();
-				builder.Services.AddScoped<LayoutService>();
+			builder.Services.AddScoped<IEmailService, EmailService>();
+			builder.Services.AddScoped<LayoutService>();
             var app = builder.Build();
             
             // Configure the HTTP request pipeline.
