@@ -21,7 +21,7 @@ namespace WebApplicationPustok.ExternalService.Impliments
 				smtpClient.UseDefaultCredentials = false;
 				smtpClient.Credentials = new NetworkCredential(_configuration["Email:Username"], _configuration["Email:Password"]);
 
-				MailAddress from = new MailAddress(_configuration["Email:Username"], "KFC support");
+				MailAddress from = new MailAddress(_configuration["Email:Username"], "Azizova support");
 				MailAddress to = new MailAddress(toMail);
 
 				MailMessage message = new MailMessage(from, to);

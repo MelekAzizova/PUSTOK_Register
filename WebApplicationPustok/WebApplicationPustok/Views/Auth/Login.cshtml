@@ -918,7 +918,11 @@
 										Me
 									</label>
 								</div>
-							</div>
+							</div> 
+							@if (!string.IsNullOrEmpty(ViewBag.Link))
+							{
+								<span class="text-danger">@Html.Raw(ViewBag.Link)</span>
+							}
 							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 							<button class="btn btn-primary btn-user btn-block">
 								Login

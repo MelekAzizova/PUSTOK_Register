@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+using System.Security.Policy;
 using WebApplicationPustok.ExternalService.Interfaces;
 using WebApplicationPustok.Helpers;
 using WebApplicationPustok.Models;
@@ -25,20 +26,14 @@ namespace WebApplicationPustok.Controllers
 		IEmailService _emailService { get; }
 		
 
-		//=======================================Send Email=================================
-		public IActionResult SendMail()
-		{
-			_emailService.Send("narmin.shivakhanova@code.edu.az", "Azizova", "hjdshjdshjdshjd");
-			return Ok();
-		}
+		
 
 
 
 
 
-
-		//==============================Registr==========================
-		public IActionResult Register()
+        #region Registr
+        public IActionResult Register()
 		{
 			return View();
 		}
@@ -70,11 +65,64 @@ namespace WebApplicationPustok.Controllers
 				ModelState.AddModelError("", "Something went wrong. Please contact admin");
 				return View(vm);
 			}
-			return RedirectToAction("Index", "Home");
+
+			await _sendConfirmation(user);
+			return View();
 		}
 
-		//=====================================Login============================
-		public IActionResult Login()
+        #endregion
+
+		public IActionResult SendMail()
+		{
+			_emailService.Send("melek.azizova47@gmail.com", "Azizova", "Yemin ederim bezdim");
+			return Ok();
+		}
+
+
+
+
+        
+        #region Email
+        public async	Task<IActionResult> SendConfrimationEmail(string username)
+		{
+			await _sendConfirmation(await _userManager.FindByNameAsync(username));
+			return Content("Email sent");
+
+        }
+		async Task _sendConfirmation(AppUser user)
+		{
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+			var link = Url.Action("EmailConfirm", "Auth", new
+			{
+				token = token,
+				username = user.UserName
+			}, Request.Scheme);
+			using StreamReader reader= new StreamReader(Path.Combine(PathConstants.RootPath, "templateEmailHtml.html"));
+			string temp=reader.ReadToEnd();
+			temp=temp.Replace("[[[username]]]", user.UserName);
+			temp = temp.Replace("[[[link]]]", link); 
+            _emailService.Send(user.Email,"Email confrim", temp);
+			
+        }
+		public async Task<IActionResult> EmailConfirm(string token,string username)
+		{
+			var result=await _userManager.ConfirmEmailAsync(await _userManager.FindByNameAsync(username),token);
+			if (result.Succeeded) return Ok();
+			return Problem();
+		}
+
+
+
+
+
+        #endregion
+
+
+
+
+
+        #region Login  
+        public IActionResult Login()
 		{
 			return View();
 		}
@@ -86,6 +134,7 @@ namespace WebApplicationPustok.Controllers
 			{
 				user = await _userManager.FindByEmailAsync(vm.UsernameOrEmail);
 			}
+			
 			else
 			{
 				user = await _userManager.FindByNameAsync(vm.UsernameOrEmail);
@@ -96,6 +145,15 @@ namespace WebApplicationPustok.Controllers
 				if (result.IsLockedOut)
 				{
 					ModelState.AddModelError("", "Too many attempts wait until " + DateTime.Parse(user.LockoutEnd.ToString()).ToString("HH:mm"));
+				}
+				else if (!user.EmailConfirmed)
+				{
+					var param = new
+					{
+						username = user.UserName
+					};
+					ViewBag.Link = $"Go to < a href = '{Url.Action("SendConfrimationEmail", "Auth", param)}' > confrim email   < /a >";
+					ModelState.AddModelError("", "");
 				}
 				else
 				{
@@ -111,17 +169,20 @@ namespace WebApplicationPustok.Controllers
 				return RedirectToAction("Index", "Home");
 			
 		}
+#endregion
 
 
-		//=========================Logout==============================
-		public async Task<IActionResult> Logout()
+        #region Logout
+        public async Task<IActionResult> Logout()
 		{
 			await _signInManager.SignOutAsync();
 			return RedirectToAction("Index", "Home");
 		}
+        #endregion
 
-		//=========================Role========================
-		public async Task<bool> CreatedRoles()
+
+	    #region Roles
+        public async Task<bool> CreatedRoles()
 		{
 			foreach (var item in Enum.GetValues(typeof(Roles)))
 			{
@@ -138,12 +199,15 @@ namespace WebApplicationPustok.Controllers
 				}
 			}
 			return true;
-		} 
+		}
+        #endregion
 
 
 
-		//===============================Userpage===================================
-		public async Task<IActionResult> UserPage()
+        #region Userpage(tam deyil)
+
+        //===============================Userpage===================================
+        public async Task<IActionResult> UserPage()
 		{
 			var user = await _userManager.FindByNameAsync(User.Identity.Name);
 			UserPageVM page = new UserPageVM();
@@ -174,5 +238,6 @@ namespace WebApplicationPustok.Controllers
 			user.UserName = vm.Username;
 			return View();
 		}
-	}
+        #endregion
+    }
 }
