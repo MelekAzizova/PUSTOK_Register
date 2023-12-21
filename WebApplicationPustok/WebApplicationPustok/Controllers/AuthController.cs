@@ -2,6 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+using WebApplicationPustok.ExternalService.Interfaces;
 using WebApplicationPustok.Helpers;
 using WebApplicationPustok.Models;
 using WebApplicationPustok.ViewModel.AuthVM;
@@ -10,17 +11,31 @@ namespace WebApplicationPustok.Controllers
 {
 	public class AuthController : Controller
 	{
-		public AuthController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+		public AuthController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, IEmailService emailService)
 		{
 			_signInManager = signInManager;
 			_userManager = userManager;
 			_roleManager = roleManager;
+			_emailService = emailService;
 		}
 
 		SignInManager<AppUser> _signInManager { get; }
 		UserManager<AppUser> _userManager { get; }
 		RoleManager<IdentityRole> _roleManager { get; }
+		IEmailService _emailService { get; }
 		
+
+		//=======================================Send Email=================================
+		public IActionResult SendMail()
+		{
+			_emailService.Send("melek.azizova47@gmail.com", "Bezimmmm", "No message");
+			return Ok();
+		}
+
+
+
+
+
 
 		//==============================Registr==========================
 		public IActionResult Register()

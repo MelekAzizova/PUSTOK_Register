@@ -10,7 +10,7 @@ using WebApplicationPustok.ViewModel.TagVM;
 namespace WebApplicationPustok.Areas.Admin.Controllers
 {
     [Area("Admin")]
-	[Authorize(Roles = "SuperAdmin, Admin, Moderator")]
+	[Authorize(Roles = "SuperAdmin, Admin, Moderator, Member")]
 	public class TagController : Controller
     {
         public TagController(PustokDbContext dp)

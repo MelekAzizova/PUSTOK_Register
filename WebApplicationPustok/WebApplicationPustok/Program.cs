@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplicationPustok.Context;
+using WebApplicationPustok.ExternalService.Impliments;
+using WebApplicationPustok.ExternalService.Interfaces;
 using WebApplicationPustok.Helpers;
 using WebApplicationPustok.Models;
 
@@ -38,6 +40,7 @@ namespace WebApplicationPustok
 			});
 
 
+            builder.Services.AddScoped<IEmailService, EmailService>();
 				builder.Services.AddScoped<LayoutService>();
             var app = builder.Build();
             

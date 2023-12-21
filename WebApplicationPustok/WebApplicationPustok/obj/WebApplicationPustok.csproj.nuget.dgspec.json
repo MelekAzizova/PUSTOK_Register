@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj": {}
+    "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj": {
+    "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj",
+        "projectUniqueName": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj",
         "projectName": "WebApplicationPustok",
-        "projectPath": "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj",
-        "packagesPath": "C:\\Users\\Melek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Melek\\OneDrive\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\obj\\",
+        "projectPath": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\WebApplicationPustok.csproj",
+        "packagesPath": "C:\\Users\\birinci novbe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\birinci novbe\\Desktop\\PUSTOK_Register\\WebApplicationPustok\\WebApplicationPustok\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Melek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\birinci novbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -86,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
