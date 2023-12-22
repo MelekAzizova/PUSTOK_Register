@@ -28,7 +28,7 @@ namespace WebApplicationPustok.Areas.Admin.ViewModels
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
         public bool IsDeleted { get; set; } = false;
-        public Tag Tag { get; set; }
+        
         public IEnumerable<Tag> Tags { get; set; } 
     }
 }

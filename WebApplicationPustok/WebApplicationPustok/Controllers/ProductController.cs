@@ -21,7 +21,6 @@ namespace WebApplicationPustok.Controllers
         {
             //var products =  _db.Products.Include(i => i.productImages).ToList();
             AdminProductListItemVM items = new AdminProductListItemVM();
-
             var x = await _db.Products.Select(p => new AdminProductListItemVM
             {
                 Id = p.Id,
@@ -37,11 +36,13 @@ namespace WebApplicationPustok.Controllers
                 SellPrice = p.SellPrice,
                 ProductCode = p.ProductCode,
                 ImgFile = p.ImagrUrl,
-                CategoryId = p.CategoryId
+                CategoryId = p.CategoryId,
+                Tags = p.TagProducts.Select(pc => pc.Tag)
+            
 
 
 
-            }).ToListAsync();
+        }).ToListAsync();
 
             return View(x);
         }

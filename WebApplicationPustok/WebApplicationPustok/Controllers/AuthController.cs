@@ -74,7 +74,7 @@ namespace WebApplicationPustok.Controllers
 
 		public IActionResult SendMail()
 		{
-			_emailService.Send("melek.azizova47@gmail.com", "Azizova", "Yemin ederim bezdim");
+			_emailService.Send("mi7ehrg0p@code.edu.az", "Azizova", "Yemin ederim bezdim");
 			return Ok();
 		}
 
@@ -152,7 +152,7 @@ namespace WebApplicationPustok.Controllers
 					{
 						username = user.UserName
 					};
-					ViewBag.Link = $"Go to < a href = '{Url.Action("SendConfrimationEmail", "Auth", param)}' > confrim email   < /a >";
+					ViewBag.Link = Url.Action("SendConfrimationEmail", param);
 					ModelState.AddModelError("", "");
 				}
 				else

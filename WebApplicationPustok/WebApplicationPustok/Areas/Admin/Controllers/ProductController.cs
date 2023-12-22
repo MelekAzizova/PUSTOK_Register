@@ -71,7 +71,7 @@ namespace WebApplicationPustok.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("ImageFile", "Wrong file type");
                 }
-                if (!vm.ImgFile.IsValidSize(20f))
+                if (!vm.ImgFile.IsValidSize(150f))
                 {
                     ModelState.AddModelError("ImgFile", "Wrong file size");
                 }
